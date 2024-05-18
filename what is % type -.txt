@@ -1,0 +1,19 @@
+what is % type :-
+
+DECLARE
+        C_ID customer.customer_id%TYPE := 12;
+        C_name CUSTOMER.FIRST_NAME% TYPE ;
+        C_country CUSTOMER.country%TYPE ;
+        C_city CUSTOMER.city%TYPE;
+BEGIN
+        SELECT  FIRST_NAME , country, CITY INTO C_name , C_country, C_city
+        FROM CUSTOMER
+        WHERE CUSTOMER_ID = C_ID ;
+        
+               dbms_output.put_line ('CUSTOMER ID  : ' ||c_id );
+        dbms_output.put_line ('NAME : ' ||c_name );
+                dbms_output.put_line ('country : ' ||c_country );
+                    dbms_output.put_line ('CITY : ' || C_CITY );
+END;
+
+

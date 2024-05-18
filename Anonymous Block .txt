@@ -1,0 +1,12 @@
+Anonymous Block 
+
+
+DECLARE 
+        S_order_id sales.order_id  % TYPE := 1272;
+        S_DATE sales.sales_date % TYPE  := '09-01-2018';
+        S_PRODUCTID sales.product_id % TYPE := 285;  
+BEGIN
+     INSERT INTO SALES  (sales_date ,order_id , product_id )
+        VALUES (S_date,S_order_id  ,S_productid);
+        dbms_output.put_line (' DATA INSERTED IN TO DATABASE |-|');
+END;

@@ -1,0 +1,12 @@
+-- WHILE LOOP 
+
+DECLARE 
+        CNTR number(2) := 10;
+        
+BEGIN   
+        WHILE CNTR <= 20
+        LOOP                   
+            dbms_output.put_line('VALUE OF CNTR: ' || CNTR);
+            CNTR := CNTR +1;
+            END LOOP ;
+END;

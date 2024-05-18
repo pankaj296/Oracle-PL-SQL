@@ -1,0 +1,30 @@
+reading data from database:-
+
+SELECT * FROM customer;
+
+DECLARE
+        C_ID number := 10;
+        C_name varchar2(50);
+        C_city varchar(40);
+BEGIN
+        SELECT FIRST_NAME , CITY INTO C_name , C_city
+        FROM CUSTOMER
+        WHERE CUSTOMER_ID = C_ID ;
+        
+        dbms_output.put_line ('NAME : ' ||c_name );
+                dbms_output.put_line ('CITY : ' || C_CITY );
+END;
+
+
+DECLARE
+        C_ID number := 12;
+        C_name varchar2(50);
+        C_city varchar(40);
+BEGIN
+        SELECT FIRST_NAME , CITY INTO C_name , C_city
+        FROM CUSTOMER
+        WHERE CUSTOMER_ID = C_ID ;
+        
+        dbms_output.put_line ('NAME : ' ||c_name );
+                dbms_output.put_line ('CITY : ' || C_CITY );
+END;

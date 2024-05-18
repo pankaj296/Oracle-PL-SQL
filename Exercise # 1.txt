@@ -1,0 +1,213 @@
+--Exercise # 1
+--1) Write a program to declare 3 variables with datatype as below and display their values.
+-- Number
+-- Varchar
+-- Date
+
+DECLARE
+        SALES_ID NUMBER (10) := 100;
+        SALES_NAME VARCHAR2 (50) := 'PANKAJ';
+        SALES_DATE DATE := '07-12-1995';
+BEGIN 
+    dbms_output.put_line('sales_id := ' || sales_id);
+        dbms_output.put_line('sales_name := ' || sales_name);
+            dbms_output.put_line('sales_date := ' || sales_date);    
+END;    
+
+
+
+DECLARE
+ A NUMBER := 10;
+ B VARCHAR2 (100) := 'Training course';
+ C DATE := TO_DATE ('01-JAN-2016', 'dd-mon-yyyy');
+BEGIN
+ DBMS_OUTPUT.PUT_LINE (A);
+ DBMS_OUTPUT.PUT_LINE (B);
+ DBMS_OUTPUT.PUT_LINE (C);
+END;
+
+
+--2) Write a program to check for a salary value and display the output based on the salary
+--range (use IF condition)
+-- if salary is greater than 100000 then display the output as 'Grade A'
+-- if salary is between 50000 and 100000 then display the output as 'Grade B'
+-- if salary is between 25000 and 50000 then display the output as 'Grade C'
+-- if salary is between 10000 and 25000 then display the output as 'Grade D'
+-- otherwise display the output as 'Grade E'
+
+DECLARE
+        salary number := 60000;
+BEGIN
+         IF  salary > 100000
+         THEN 
+        dbms_output.put_line('GRADE A');
+        ELSIF salary  BETWEEN 50000 AND 100000 
+        THEN
+                dbms_output.put_line('GRADE B');
+       ELSIF salary  BETWEEN 25000 AND 50000 
+       THEN        
+                dbms_output.put_line('GRADE C');
+        ELSIF salary  BETWEEN 10000 AND 25000 
+         THEN
+         dbms_output.put_line('GRADE D');
+         ELSE 
+                     dbms_output.put_line('GRADE E');
+        END IF ;
+END;
+
+2)
+DECLARE
+ SAL NUMBER := 10000;
+BEGIN
+IF SAL > 100000 THEN
+ DBMS_OUTPUT.PUT_LINE ('Grade A');
+ELSIF SAL BETWEEN 50000 AND 100000 THEN
+ DBMS_OUTPUT.PUT_LINE ('Grade B');
+ELSIF SAL BETWEEN 25000 AND 50000 THEN
+ DBMS_OUTPUT.PUT_LINE ('Grade C');
+ELSIF SAL BETWEEN 10000 AND 25000 THEN
+ DBMS_OUTPUT.PUT_LINE ('Grade D');
+ELSE
+ DBMS_OUTPUT.PUT_LINE ('Grade E');
+END IF;
+END;
+
+
+--3) Write a program using the same conditions as in the #1 question, but use CASE
+--condition instead of IF condition.
+
+    
+DECLARE
+        salary number := 40000;
+BEGIN
+        CASE
+         WHEN   salary > 100000
+         THEN 
+        dbms_output.put_line('GRADE A');
+        WHEN salary  BETWEEN 50000 AND 100000 
+        THEN
+                dbms_output.put_line('GRADE B');
+       WHEN salary  BETWEEN 25000 AND 50000 
+       THEN        
+                dbms_output.put_line('GRADE C');
+        WHEN salary  BETWEEN 10000 AND 25000 
+         THEN
+         dbms_output.put_line('GRADE D');
+         ELSE 
+                     dbms_output.put_line('GRADE E');
+        END CASE ;
+END;
+
+3)
+DECLARE
+ SAL NUMBER := 10000;
+BEGIN
+CASE WHEN SAL > 100000 THEN
+ DBMS_OUTPUT.PUT_LINE ('Grade A');
+WHEN SAL BETWEEN 50000 AND 100000 THEN
+ DBMS_OUTPUT.PUT_LINE ('Grade B');
+WHEN SAL BETWEEN 25000 AND 50000 THEN
+ DBMS_OUTPUT.PUT_LINE ('Grade C');
+WHEN SAL BETWEEN 10000 AND 25000 THEN
+ DBMS_OUTPUT.PUT_LINE ('Grade D');
+ELSE
+ DBMS_OUTPUT.PUT_LINE ('Grade E');
+END CASE;
+END;
+
+--4) Write a program to display values from 200 to 300 using a WHILE loop.
+
+     DECLARE
+            LPNM NUMBER := 200;
+    BEGIN   
+           WHILE LPNM <=300
+           LOOP
+            dbms_output.put_line('values from 200 to 300 using a WHILE loop : '||lpnm);
+            LPNM := LPNM +1;
+            END LOOP;
+    END ;
+    
+    4)
+DECLARE
+ I NUMBER := 200;
+BEGIN
+WHILE I <= 300
+LOOP
+ DBMS_OUTPUT.PUT_LINE (I);
+ I:=I+1;
+END LOOP;
+END;
+--5) Write a program to display values from 200 to 300 using a FOR loop.
+     DECLARE
+            LPNM NUMBER := 200;
+    BEGIN   
+           FOR  LPNM IN 200..300
+           LOOP
+            dbms_output.put_line('values from 200 to 300 using a FOR  loop : '||lpnm);
+            END LOOP;
+    END ;
+
+5)
+DECLARE
+ I NUMBER;
+BEGIN
+FOR I IN 200..300
+LOOP
+ DBMS_OUTPUT.PUT_LINE (I);
+END LOOP;
+END;
+
+--6) Write a program to perform below steps
+-- Declare a variable
+-- If the variable value is 1 then display values from 300 to 400 using a WHILE loop
+-- If the variable value is 2 then display values from 400 to 800 using a FOR loop
+-- If the variable value is 3 then just display “wrong choice”
+
+		DECLARE 
+            CHOICE NUMBER := 3;
+            X NUMBER := 300;
+            Y NUMBER ;
+        BEGIN 
+            IF CHOICE = 1 
+            THEN 
+            WHILE X <= 400
+            LOOP dbms_output.put_line('value of X from 300 to 400: '|| x);
+            X := X+1;
+            END LOOP ;
+            
+        ELSIF CHOICE = 2
+        THEN 
+        FOR Y IN 400..800
+        LOOP dbms_output.put_line ('value of Y from 400 to 800 : ' || Y );
+        END LOOP;
+        
+        ELSIF CHOICE = 3
+        THEN
+        dbms_output.put_line('  “wrong choice” ');
+        END IF;
+                END ;
+
+        
+        
+        
+        6)
+DECLARE
+ CHOICE NUMBER:=3;
+ I NUMBER:=300;
+ J NUMBER;
+BEGIN
+IF CHOICE = 1 THEN
+ WHILE I <= 300
+ LOOP
+ DBMS_OUTPUT.PUT_LINE (I);
+ I:=I+1;
+ END LOOP;
+ELSIF CHOICE = 2 THEN
+ FOR J IN 400..800
+ LOOP
+ DBMS_OUTPUT.PUT_LINE (J);
+ END LOOP;
+ELSIF CHOICE = 3 THEN
+ DBMS_OUTPUT.PUT_LINE ('Wrong Choice');
+END IF;
+END;

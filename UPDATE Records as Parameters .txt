@@ -1,0 +1,36 @@
+UPDATE Records as Parameters 
+
+
+CREATE OR REPLACE PROCEDURE process_customer
+( c_id IN customer.customer_id%TYPE )
+IS 
+ 	c_rec customer%rowtype;
+
+    BEGIN
+        SELECT  *
+	 INTO  	c_rec	    
+	FROM 	customer
+	WHERE 	customer_id = c_id;
+	
+	c_rec.first_name := 'RAJU JI';
+	
+	show_customer(c_rec);
+
+	END;
+	
+
+	
+	create or replace PROCEDURE show_customer
+	(
+	customer_in IN customer %ROWTYPE
+		)
+	IS
+	BEGIN 
+
+	UPDATE customer SET ROW = customer_in where customer_id = customer_in.customer_id;
+	COMMIT;        
+	END; 
+
+	EXECUTE process_customer(16);
+	
+	SELECT * FROM CUSTOMER WHERE CUSTOMER_ID = 16 ;

@@ -1,0 +1,73 @@
+USER DEFINED EXCEPTION 
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+					USER DEFINED EXCEPTION   
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+
+EXECUTE get_customer11(12);
+
+CREATE OR REPLACE PROCEDURE GET_CUSTOMER11 
+(
+C_ID   IN  NUMBER
+)
+AS
+C_NAME CUSTOMER.FIRST_NAME%TYPE;
+C_CITY CUSTOMER.CITY%TYPE;
+C_CUSTOMER_Exceptions EXCEPTION;
+   
+    BEGIN 
+    
+    IF c_id < = 0 THEN
+    RAISE  C_CUSTOMER_Exceptions;
+    END IF;
+    
+    SELECT FIRST_NAME , CITY INTO C_NAME , C_CITY
+    FROM CUSTOMER
+    WHERE customer_id = c_id;
+    
+    dbms_output.put_line('name : '|| c_name);
+    dbms_output.put_line('CITY  : '|| c_city);
+--    DBMS_OUTPUT.put_line('Error in '|| $$plsql_unit || ' at ' || $$plsql_line);  TO ERROR NAME 
+    
+    EXCEPTION
+    WHEN no_data_found THEN 
+    dbms_output.put_line(' no data found');
+    WHEN C_CUSTOMER_Exceptions  THEN 
+    dbms_output.put_line(' C_CUSTOMER_Exceptions CID MUST BE GRETTER THE  0 ERROS ');
+    WHEN TOO_MANY_rows THEN 
+    dbms_output.put_line(' exact fetch returns more than requested number of rows ');
+    WHEN OTHERS  THEN 
+    dbms_output.put_line(' OTHERS ERROS ');
+    END ;
+    
+    
+    
+    
+    
+    CREATE OR REPLACE PROCEDURE GET_CUSTOMER 
+(
+C_ID   IN  NUMBER
+)
+AS
+C_NAME CUSTOMER.FIRST_NAME%TYPE;
+C_CITY CUSTOMER.CITY%TYPE;
+    
+    BEGIN 
+    
+    SELECT FIRST_NAME , CITY INTO C_NAME , C_CITY
+    FROM CUSTOMER
+    WHERE customer_id = c_id;
+    
+    dbms_output.put_line('name : '|| c_name);
+    dbms_output.put_line('CITY  : '|| c_city);
+--    DBMS_OUTPUT.put_line('Error in '|| $$plsql_unit || ' at ' || $$plsql_line);  TO ERROR NAME 
+    
+    EXCEPTION
+    WHEN no_data_found THEN 
+    dbms_output.put_line(' no data found');
+    WHEN TOO_MANY_rows THEN 
+    dbms_output.put_line(' exact fetch returns more than requested number of rows ');
+    WHEN OTHERS  THEN 
+    dbms_output.put_line(' OTHERS ERROS ');
+    END ;
+
+EXECUTE GET_CUSTOMER (12);

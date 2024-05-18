@@ -1,0 +1,27 @@
+CALLING PROCEDURE 
+
+-- METHOD 1 
+
+BEGIN 
+add_customer (18 ,'JEEF','AFSNO','A','2564 SUNALE NIN ','ANCLDN','NEW YORK','USA','05-12-1996','WEST');
+END;
+
+-- METHOD 2
+
+BEGIN
+add_customer
+(
+c_id           => 19 ,
+c_fname         =>'MANGO ',    
+c_lname         => 'RAJA',
+c_mname         => 'R',
+c_add1          =>'45876 AAPLEKND SC',
+c_add2          =>'KJDBUIOFVBD  CSSDS',
+c_city          => 'NEW YORK',
+c_country       => 'USA',
+c_date_added    => '25-05-2015',    
+c_region        => 'SOUTH'
+);
+END;
+
+SELECT * FROM CUSTOMER;

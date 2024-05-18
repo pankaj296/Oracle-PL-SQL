@@ -1,0 +1,24 @@
+-- FOR LOOP 
+DECLARE 
+        CNTR number := 10;
+        
+BEGIN   
+       FOR CNTR IN 10..20
+        LOOP                   
+            dbms_output.put_line('VALUE OF CNTR: ' || CNTR);
+            END LOOP ;
+END;
+
+
+-- REVERSE FOR LOOP 
+
+DECLARE 
+        CNTR number := 10;
+        
+BEGIN   
+       FOR CNTR IN REVERSE 10..200
+        LOOP                   
+            dbms_output.put_line('VALUE OF CNTR: ' || CNTR);
+            END LOOP ;
+END;
+

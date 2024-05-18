@@ -1,0 +1,37 @@
+Inserting data using Records 
+
+
+CREATE OR REPLACE PROCEDURE process_customer
+( c_id IN customer.customer_id%TYPE )
+IS 
+ 	c_rec customer%rowtype;
+
+    BEGIN
+        SELECT  *
+	 INTO  	c_rec	    
+	FROM 	customer
+	WHERE 	customer_id = c_id;
+	
+	show_customer(c_rec);
+
+	END;
+	
+
+	
+	create or replace PROCEDURE show_customer
+	(
+	customer_in IN customer %ROWTYPE
+		)
+	IS
+	BEGIN 
+		INSERT INTO customer VALUES customer_in;
+		COMMIT;
+	END; 
+
+	EXECUTE process_customer(10);
+
+
+execute process_customer(10);
+
+
+SELECT * FROM CUSTOMER WHERE CUSTOMER_ID = 17;

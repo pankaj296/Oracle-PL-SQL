@@ -1,0 +1,40 @@
+INSERTING DATA INTO DB
+
+DECLARE
+        C_ID customer.customer_id%TYPE := 16;
+        C_first_name CUSTOMER.FIRST_NAME% TYPE := 'PRIYA' ;
+        C_last_name CUSTOMER.LAST_NAME% TYPE := 'GUPTA' ;
+        C_middle_name CUSTOMER.MIDDLE_NAME% TYPE := 'JI';
+        C_address1 CUSTOMER.ADDRESS_LINE1% TYPE := '25689 VIT';
+        C_address2 CUSTOMER.ADDRESS_LINE2% TYPE :=' VP';
+        C_DATE customer.DATE_ADDED%TYPE := '02-11-2011';
+        C_REGION customer.REGION%TYPE := 'EAST';
+        C_country CUSTOMER.country%TYPE := 'INDIA';
+        C_city CUSTOMER.city%TYPE := 'MUMBAI';
+BEGIN
+        INSERT INTO CUSTOMER 
+        VALUES (C_ID,C_first_name,c_last_name,c_middle_name,c_address1,c_address2,c_country,c_city,c_date,c_region );
+        dbms_output.put_line (' DATA INSERTED :- ' );
+END;
+
+
+2 way to insert :=
+
+
+DECLARE
+        C_ID customer.customer_id%TYPE ;
+        C_first_name CUSTOMER.FIRST_NAME% TYPE ;
+        C_last_name CUSTOMER.LAST_NAME% TYPE  ;
+        C_middle_name CUSTOMER.MIDDLE_NAME% TYPE ;
+        C_address1 CUSTOMER.ADDRESS_LINE1% TYPE ;
+        C_address2 CUSTOMER.ADDRESS_LINE2% TYPE ;
+        C_DATE customer.DATE_ADDED%TYPE ;
+        C_REGION customer.REGION%TYPE ;
+        C_country CUSTOMER.country%TYPE ;
+        C_city CUSTOMER.city%TYPE ;
+BEGIN
+        INSERT INTO CUSTOMER  VALUES (14,'RAJA','GUPTA','BHAIYA','23356 VIRNDAVAN ',' ROOM NO 2','MIMBAI','INDIA ','07-12-1995','EAST')  ;
+               dbms_output.put_line (' DATA INSERTED :- ' );
+END;
+
+

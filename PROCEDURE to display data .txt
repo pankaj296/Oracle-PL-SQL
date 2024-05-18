@@ -1,0 +1,39 @@
+PROCEDURE to display data 
+
+CREATE OR REPLACE PROCEDURE process_customer
+( c_id IN customer.customer_id%TYPE )
+IS 
+ 	C_ID 		 customer.customer_id%TYPE ;
+        C_first_name	 CUSTOMER.FIRST_NAME% TYPE ;
+        C_last_name 	CUSTOMER.LAST_NAME% TYPE  ;
+        C_middle_name 	CUSTOMER.MIDDLE_NAME% TYPE ;
+        C_address1 	CUSTOMER.ADDRESS_LINE1% TYPE ;
+        C_address2 	CUSTOMER.ADDRESS_LINE2% TYPE ;
+        C_DATE 		customer.DATE_ADDED%TYPE ;
+        C_REGION 	customer.REGION%TYPE ;
+        C_country	 CUSTOMER.country%TYPE ;
+        C_city 		 CUSTOMER.city%TYPE ;
+
+    BEGIN
+        SELECT 
+		(customer_id,first_name,last_name,middle_name,address_line1,address_line2,city,country,date_added,region)
+	 INTO  
+        	(c_id,c_fname ,c_lname,c_mname ,c_add1 ,c_add2  ,c_city   ,c_country , c_date_added ,c_region );
+	    
+	FROM 	customer
+	WHERE 	customer_id = c_id;
+
+	
+	dbms_output.put_line ('CUSTOMER ID  : ' ||c_id );
+        dbms_output.put_line ('FIRST NAME : ' ||c_Fname );
+        dbms_output.put_line ('LAST NAME : ' ||c_Lname );
+        dbms_output.put_line ('MIDDLE NAME : ' ||c_Mname );
+        dbms_output.put_line ('ADDRESS1 : ' ||c_add1 );
+        dbms_output.put_line ('ADDRESS2 : ' ||c_add2 );
+        dbms_output.put_line ('DATE  : ' ||c_date );
+        dbms_output.put_line ('REGION  : ' ||c_region );
+        dbms_output.put_line ('country : ' ||c_country );
+        dbms_output.put_line ('CITY : ' || C_CITY );
+
+
+	END; 

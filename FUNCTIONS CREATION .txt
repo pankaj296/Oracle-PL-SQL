@@ -1,0 +1,41 @@
+FUNCTIONS CREATION 
+-------------------------------------------------------------------------------------------------------------------------------------------------------	
+							FUNCTIONS  Mode 
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    CREATE OR REPLACE FUNCTION SALES_COUNT 
+    (
+    s_sales_date IN DATE
+    ) RETURN NUMBER 
+    AS 
+         num_of_sales NUMBER :=0;
+         
+         BEGIN
+         
+         SELECT COUNT(*) INTO num_of_sales FROM sales 
+         WHERE s_sales_date = sales_date;
+         
+         RETURN num_of_sales;
+         
+         END SALES_COUNT;
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------	
+						CALLING	FUNCTIONS  Mode 
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+
+-- METHOD 1
+
+SELECT sales_count (to_date('01-JAN-2015','dd-mon-yyyy')) from dual ;
+
+
+-- method 2
+
+
+DECLARE
+    SCOUNT NUMBER := 0;
+BEGIN 
+
+    SCOUNT := sales_count (to_date('01-jan-2015','dd-mon-yyyy'));
+    DBMS_OUTPUT.PUT_LINE(SCOUNT);
+END;    
+    

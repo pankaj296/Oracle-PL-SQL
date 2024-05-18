@@ -1,0 +1,22 @@
+GLOBBAL / local variable 
+DECLARE 
+-- GLOBBAL  variable section 
+        num1 number := 99;
+        
+    
+BEGIN
+            dbms_output.put_line('GLOBAL VARIABLE NUM1: ' || NUM1);
+            
+         DECLARE
+        -- LOCAL VARIABLE 
+        num2 number := 789;
+        
+        BEGIN
+        
+        dbms_output.put_line('LOCAL VARIABLE NUM1 : '|| num1);
+                dbms_output.put_line('LOCAL VARIABLE NUM2 : '|| num2);
+
+        
+        END;
+
+END;

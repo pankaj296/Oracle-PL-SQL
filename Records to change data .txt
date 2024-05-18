@@ -1,0 +1,39 @@
+Records to change data 
+
+CREATE OR REPLACE PROCEDURE process_customer
+( c_id IN customer.customer_id%TYPE )
+IS 
+ 	c_rec customer%rowtype;
+ 	c_rec1 customer%rowtype;
+
+    BEGIN
+        SELECT  *
+	 INTO  	c_rec	    
+	FROM 	customer
+	WHERE 	customer_id = c_id;
+
+
+		c_rec1 := c_rec;
+
+	c_rec.first_name := 'sonu';
+	c_rec.last_name := 'raja';
+
+
+	
+	dbms_output.put_line ('CUSTOMER ID  : ' ||c_rec.customer_id );
+        dbms_output.put_line ('FIRST NAME : ' ||c_rec.first_name );
+        dbms_output.put_line ('LAST NAME : ' ||c_rec.last_name );
+        dbms_output.put_line ('MIDDLE NAME : ' ||c_rec.middle_name );
+        dbms_output.put_line ('ADDRESS1 : ' ||c_rec.add1 );
+        dbms_output.put_line ('ADDRESS2 : ' ||c_rec.add2 );
+        dbms_output.put_line ('DATE  : ' ||c_rec.date );
+        dbms_output.put_line ('REGION  : ' ||c_rec.region );
+        dbms_output.put_line ('country : ' ||c_rec.country );
+        dbms_output.put_line ('CITY : ' || c_rec.CITY );
+
+
+	END; 
+
+
+execute process_customer(10);
+

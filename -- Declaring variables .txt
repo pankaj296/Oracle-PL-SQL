@@ -1,0 +1,19 @@
+-- Declaring variables 
+
+
+DECLARE 
+-- variable section 
+        ordernumber CONSTANT number := 1001;
+        orderid number default 1002;
+        customername VARCHAR2 (20) := 'pankaj';
+        customername1 VARCHAR2 (20) DEFAULT 'raja';
+        
+    
+BEGIN
+        orderid := 123456;
+        dbms_output.put_line('Welcome to the course ');
+                dbms_output.put_line(ordernumber);
+                           dbms_output.put_line(orderid);
+                                 dbms_output.put_line(customername);
+                                    dbms_output.put_line(customername1);
+END;
